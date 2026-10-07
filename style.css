@@ -1,0 +1,293 @@
+/* ============================================================
+   VARIÁVEIS DO PROJETO
+   ============================================================ */
+
+/*
+    :root representa o elemento principal do documento.
+
+    Aqui criamos variáveis CSS que poderão ser reutilizadas
+    em várias partes do arquivo.
+*/
+:root {
+
+    --bg-color: #f7f7f9;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --border-color: #dddddd;
+    --primary: #0066cc;
+    --danger: #dc3545;
+}
+
+
+/* ============================================================
+   TEMA ESCURO
+   ============================================================ */
+
+/*
+    Quando o body possuir a classe "dark-mode",
+    estas variáveis serão utilizadas.
+*/
+body.dark-mode {
+
+    --bg-color: #1e1e2e;
+    --card-bg: #2d2d3d;
+    --text-color: #f1f1f1;
+    --border-color: #444454;
+    --primary: #3b82f6;
+    --danger: #ef4444;
+}
+
+
+/* ============================================================
+   CORPO DA PÁGINA
+   ============================================================ */
+
+body {
+
+    /* Define a fonte utilizada na página */
+    font-family: system-ui, Arial, sans-serif;
+
+    /* Usa a variável de cor de fundo */
+    background-color: var(--bg-color);
+
+    /* Usa a variável de cor do texto */
+    color: var(--text-color);
+
+    /* Limita a largura máxima da página */
+    max-width: 800px;
+
+    /* Centraliza a página horizontalmente */
+    margin: 40px auto;
+
+    /* Espaçamento interno */
+    padding: 0 20px;
+
+    /* Espaçamento entre linhas */
+    line-height: 1.5;
+
+    /* Cria uma transição suave quando o tema muda */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* ============================================================
+   CABEÇALHO
+   ============================================================ */
+
+header {
+
+    /* Ativa o Flexbox */
+    display: flex;
+
+    /* Coloca os elementos nas extremidades */
+    justify-content: space-between;
+
+    /* Alinha verticalmente os elementos */
+    align-items: center;
+
+    /* Espaço abaixo do cabeçalho */
+    margin-bottom: 24px;
+}
+
+
+/* ============================================================
+   SEÇÕES
+   ============================================================ */
+
+section {
+
+    /* Cor de fundo do cartão */
+    background: var(--card-bg);
+
+    /* Borda */
+    border: 1px solid var(--border-color);
+
+    /* Arredonda os cantos */
+    border-radius: 12px;
+
+    /* Espaçamento interno */
+    padding: 20px;
+
+    /* Espaçamento externo */
+    margin: 18px 0;
+}
+
+
+/* ============================================================
+   GRUPO DO CAMPO
+   ============================================================ */
+
+.field-group {
+
+    /* Ativa Flexbox */
+    display: flex;
+
+    /* Espaçamento entre input e botão */
+    gap: 10px;
+}
+
+
+/* ============================================================
+   CAMPO DE TEXTO
+   ============================================================ */
+
+input[type="text"] {
+
+    /*
+        Faz o input ocupar o espaço disponível.
+    */
+    flex: 1;
+
+    /* Espaçamento interno */
+    padding: 10px;
+
+    /* Cantos arredondados */
+    border-radius: 8px;
+
+    /* Borda */
+    border: 1px solid var(--border-color);
+
+    /* Fundo */
+    background-color: var(--card-bg);
+
+    /* Cor do texto */
+    color: var(--text-color);
+}
+
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+
+button {
+
+    /* Espaçamento interno */
+    padding: 10px 16px;
+
+    /* Cantos arredondados */
+    border-radius: 8px;
+
+    /* Remove a borda padrão */
+    border: none;
+
+    /* Cor principal */
+    background-color: var(--primary);
+
+    /* Cor do texto */
+    color: #fff;
+
+    /* Mostra a mão ao passar sobre o botão */
+    cursor: pointer;
+
+    /* Deixa o texto em negrito */
+    font-weight: bold;
+}
+
+
+/* ============================================================
+   BOTÃO DE PERIGO
+   ============================================================ */
+
+button.btn-danger {
+
+    /* Usa a cor de perigo */
+    background-color: var(--danger);
+}
+
+
+/* ============================================================
+   MENSAGEM DE ERRO
+   ============================================================ */
+
+.error {
+
+    /* Cor da mensagem */
+    color: var(--danger);
+
+    /* Faz o elemento ocupar sua própria linha */
+    display: block;
+
+    /* Espaçamento acima */
+    margin-top: 6px;
+}
+
+
+/* ============================================================
+   LISTA
+   ============================================================ */
+
+ul {
+
+    /* Remove os marcadores da lista */
+    list-style: none;
+
+    /* Remove o espaçamento interno padrão */
+    padding: 0;
+
+    /* Espaçamento acima da lista */
+    margin-top: 15px;
+}
+
+
+/* ============================================================
+   ITEM DA LISTA
+   ============================================================ */
+
+li {
+
+    /* Ativa Flexbox */
+    display: flex;
+
+    /* Coloca conteúdo e botão nas extremidades */
+    justify-content: space-between;
+
+    /* Alinha verticalmente */
+    align-items: center;
+
+    /* Espaçamento interno */
+    padding: 10px;
+
+    /* Linha inferior */
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+/* ============================================================
+   TAREFA CONCLUÍDA
+   ============================================================ */
+
+/*
+    Quando o <li> possuir a classe "concluida",
+    o texto será riscado.
+*/
+li.concluida span {
+
+    /* Risca o texto */
+    text-decoration: line-through;
+
+    /* Deixa o texto um pouco transparente */
+    opacity: 0.6;
+}
+
+
+/* ============================================================
+   BOTÃO EXCLUIR
+   ============================================================ */
+
+.btn-remove {
+
+    /* Fundo transparente */
+    background-color: transparent;
+
+    /* Texto na cor de perigo */
+    color: var(--danger);
+
+    /* Borda na cor de perigo */
+    border: 1px solid var(--danger);
+
+    /* Espaçamento interno menor */
+    padding: 4px 8px;
+
+    /* Cantos arredondados */
+    border-radius: 6px;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Define a codificação para aceitar acentos e caracteres especiais -->
+    <meta charset="utf-8">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>JS Externo, DOM e LocalStorage</title>
+
+    <!-- Faz a página se adaptar a diferentes tamanhos de tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Conecta o arquivo HTML ao arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!--
+        Container principal da aplicação.
+        Ele agrupa todo o conteúdo da página.
+    -->
+    <div class="container">
+
+        <!-- Cabeçalho da aplicação -->
+        <header>
+
+            <!-- Título principal -->
+            <h1>Gerenciador de Tarefas e Preferências</h1>
+
+            <!--
+                Botão para alternar entre tema claro e escuro.
+
+                IMPORTANTE:
+                Não usamos onclick aqui.
+                O JavaScript vai capturar esse botão
+                usando addEventListener.
+            -->
+            <button id="btn-tema">
+                Alternar Tema
+            </button>
+
+        </header>
+
+
+        <!-- =====================================================
+             SEÇÃO 1 - CADASTRO DE TAREFAS
+        ====================================================== -->
+
+        <section id="sec-form">
+
+            <h2>1- Cadastrar Nova Tarefa</h2>
+
+            <!--
+                Formulário utilizado para cadastrar uma nova tarefa.
+            -->
+            <form id="form-tarefa">
+
+                <div class="field-group">
+
+                    <!--
+                        Campo onde o usuário digita a tarefa.
+
+                        required:
+                        impede o envio do formulário vazio pelo navegador.
+                    -->
+                    <input
+                        type="text"
+                        id="input-tarefa"
+                        placeholder="Digite uma nova tarefa..."
+                        required
+                    >
+
+                    <!--
+                        type="submit":
+                        indica que este botão envia o formulário.
+                    -->
+                    <button type="submit">
+                        Adicionar
+                    </button>
+
+                </div>
+
+                <!--
+                    Área onde o JavaScript poderá mostrar
+                    mensagens de erro.
+                -->
+                <small id="erro-msg" class="error"></small>
+
+            </form>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEÇÃO 2 - LISTA DE TAREFAS
+        ====================================================== -->
+
+        <section id="sec-lista">
+
+            <h2>2- Minhas Tarefas (Persistidas no LocalStorage)</h2>
+
+            <!-- Mostra a quantidade total e de tarefas pendentes -->
+            <p id="contador-tarefas">
+                total: 0 | pendentes: 0
+            </p>
+
+            <!-- Campo usado para pesquisar as tarefas -->
+            <input 
+            type="text"
+            id="input-busca"
+            placeholder="buscar tarefas..."
+            >
+
+
+            <div class="actions">
+
+                <!--
+                    Botão para apagar todas as tarefas.
+                    O JavaScript vai controlar o clique.
+                -->
+                <button id="btn-limpar" class="btn-danger">
+                    Limpar Todas
+                </button>
+
+            </div>
+
+            <!--
+                Lista vazia inicialmente.
+
+                O JavaScript criará os elementos <li>
+                dinamicamente quando houver tarefas.
+            -->
+            <ul id="lista-tarefas"></ul>
+
+        </section>
+
+    </div>
+
+
+    <!--
+        Conecta o JavaScript externo ao HTML.
+
+        O script fica no final do body para que
+        os elementos HTML já tenham sido carregados
+        quando o JavaScript tentar encontrá-los.
+    -->
+    <script src="script.js"></script>
+
+</body>
+</html>
